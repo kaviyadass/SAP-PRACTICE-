@@ -1,0 +1,38 @@
+*BASIC CALCULATOR PROGRAM WITH IF-ENDIF.
+  REPORT ZCALCI001.
+
+DATA: "NUM1 TYPE I, 
+      "NUM2 TYPE I,
+      RESULT TYPE I. " STORES THE CALCULATION RESULT
+      "OP TYPE C LENGTH 1. 
+
+PARAMETERS: NUM1 TYPE I, " FIRST NUMBER
+            NUM2 TYPE I, " SECOND NUMBER
+            OP TYPE C LENGTH 1. " OPERATOR(+, -, *,/)
+
+START-OF-SELECTION.
+IF OP = '+'.
+  RESULT = NUM1 + NUM2.
+  WRITE: / 'Addition Result:' , result.
+
+ELSEIF OP = '-'.
+  RESULT = NUM1 - NUM2.
+  WRITE: / 'SUBTRACTION Result:' , result.
+
+ELSEIF OP = '*'.
+  RESULT = NUM1 * NUM2.
+  WRITE: / 'Multiplication Result:' , result.
+
+ELSEIF OP = '/'.
+  IF NUM2 = 0.
+    WRITE: /'ERROR: CANNOT DIVIDE BY ZERO.'.
+  ELSE.
+  RESULT = NUM1 / NUM2.
+  WRITE: / 'Division Result:' , result.
+
+ENDIF.
+
+ELSE.
+  WRITE:/ 'INVALID OPERATOR'.
+
+ENDIF.
